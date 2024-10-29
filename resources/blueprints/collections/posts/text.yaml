@@ -1,62 +1,64 @@
+order: 6
 title: Text
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          type: text
-          required: true
-          validate:
-            - required
-      -
-        handle: content
-        field:
-          restrict: false
-          automatic_line_breaks: true
-          automatic_links: true
-          escape_markup: false
-          smartypants: false
-          antlers: false
-          display: 'Main Content'
-          type: markdown
-          icon: markdown
-          listable: hidden
-          instructions_position: above
-          read_only: false
-      -
-        import: generic
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: content
+            field:
+              automatic_links: true
+              display: 'Main Content'
+              type: markdown
+          -
+            import: generic
   sidebar:
     display: Sidebar
-    fields:
+    sections:
       -
-        handle: slug
-        field:
-          type: slug
-          localizable: true
-      -
-        handle: date
-        field:
-          type: date
-          required: true
-          validate:
-            - required
-          instructions_position: above
-          listable: hidden
-          read_only: false
-          mode: single
-          time_enabled: false
-          time_seconds_enabled: false
-          full_width: false
-          inline: false
-          columns: 1
-          rows: 1
-      -
-        handle: tags
-        field:
-          type: terms
-          taxonomies:
-            - tags
-          display: Tags
-          mode: select
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
+          -
+            handle: category
+            field:
+              max_items: 1
+              mode: select
+              taxonomies:
+                - category
+              type: terms
+              display: Category
+          -
+            handle: import_id
+            field:
+              type: text
+              display: 'Import Id'
