@@ -1,0 +1,17 @@
+<section class="max-w-lg mx-auto space-y-8 lg:space-y-24 py-8 lg:py-24 px-4 lg:px-0">
+{{ search:results }}
+
+ 
+  {{ if no_results }}
+    <h2>No results.</h2>
+  {{ else }}
+ 
+    <a href="{{ url }}" class="result">
+      <h2>{{ title }}</h2>
+      <p>{{ content | truncate:240 }}</p>
+    </a><br/>
+
+  {{ /if }}
+ 
+{{ /search:results }}
+</section>

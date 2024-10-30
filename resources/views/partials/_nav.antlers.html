@@ -1,4 +1,8 @@
 <header class="relative z-10">
+<!-- <form action="{{ route:search }}">
+    <input type="search" name="q" placeholder="Search">
+    <button type="submit">Go find it!</button>
+</form> //-->
     <div class="max-w-6xl mx-auto flex items-center justify-between py-8 px-6">
         <nav>
             <ul class="flex items-center space-x-6 font-bold">
@@ -6,8 +10,13 @@
                 <li><a class="hover:text-indigo-800" href="/posts/tags">Tags</a></li>
             </ul>
         </nav>
-        <nav>
-            <ul class="flex items-center space-x-6">
+        <nav>           
+<ul class="flex items-center space-x-6">
+	<li><form action="{{ route:search }}">
+    		<input type="search" name="q" class="border border-gray-300 rounded-lg" placeholder="Search">
+    		<button type="submit" class="font-bold">Go </button>
+		</form>
+		</li>
                 {{ foreach:social_links }}
                     <a href="{{ value }}" class="flex items-center justify-center h-7 w-7 hover:text-indigo-800 scale-100 hover:scale-[1.1] hover:-rotate-2" title="{{ label }}">
                         {{ svg src="assets/icons/{key}" :aria-label="label" role="img" }}
