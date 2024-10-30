@@ -7,10 +7,15 @@
   {{ else }}
  
     <a href="{{ url }}" class="result">
-      <h2>{{ title }}</h2>
-      <p>{{ content | truncate:240 }}</p>
-    </a><br/>
-
+<blockquote class="bg-gray-100 border-l-4 border-blue-500 rounded-md">
+    <p class="italic">{{title}}</p>
+</blockquote>
+{{ if content }}
+<p >{{ content | truncate:240 }}</p>
+{{ /if }}
+<div class="px-2 ml-4 text-gray-600">{{date }}</div>
+<br/>   
+ </a>
   {{ /if }}
  
 {{ /search:results }}
